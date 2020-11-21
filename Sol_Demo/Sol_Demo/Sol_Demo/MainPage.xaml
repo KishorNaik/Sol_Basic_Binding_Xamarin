@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sol_Demo.MainPage">
+
+    <StackLayout>
+        <StackLayout>
+            <Label Text="With Binding Context"></Label>
+            <Label
+                FontSize="Large"
+                BindingContext="{x:Reference sliderWithBindingContext}"
+                Text="{Binding Value}"></Label>
+            <Slider x:Name="sliderWithBindingContext" Minimum="0" Maximum="100" BackgroundColor="Bisque"></Slider>
+        </StackLayout>
+
+        <StackLayout>
+            <Label Text="Without Binding Context"></Label>
+            <Label
+                FontSize="Large"
+                Text="{Binding Source={x:Reference sliderWithoutBindingContext}, Path=Value}"></Label>
+            <Slider x:Name="sliderWithoutBindingContext" Minimum="0" Maximum="100" BackgroundColor="Chocolate"></Slider>
+        </StackLayout>
+
+        <StackLayout BindingContext="{x:Reference sliderBindingContextInheritance}">
+            <Label Text="Binding Context Inheritance"></Label>
+            <Label
+                FontSize="Large"
+                Text="{Binding Value}"></Label>
+            <Slider x:Name="sliderBindingContextInheritance" Minimum="0" Maximum="100" BackgroundColor="DarkCyan"></Slider>
+        </StackLayout>
+
+        <StackLayout BindingContext="{x:Reference sliderStringFormat}">
+            <Label Text="Binding Context String format"></Label>
+            <Label
+                FontSize="Large"
+                Text="{Binding Value, StringFormat='The slider value is {0:F2}'}"></Label>
+            <Slider x:Name="sliderStringFormat" Minimum="0" Maximum="100" BackgroundColor="DarkCyan"></Slider>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
